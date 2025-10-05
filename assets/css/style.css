@@ -1,0 +1,508 @@
+/* Song Lyrics Platform - Main Stylesheet */
+/* Modern, responsive design with compact layout */
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.9rem; }
+
+p {
+    margin-bottom: 0.75rem;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Layout Components */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 1rem;
+}
+
+/* Header */
+.header {
+    background: #fff;
+    border-bottom: 1px solid #e9ecef;
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: #6c757d;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #007bff;
+    background-color: #f8f9fa;
+    text-decoration: none;
+}
+
+/* Search Bar */
+.search-container {
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+}
+
+.search-form {
+    display: flex;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    outline: none;
+    font-size: 0.85rem;
+}
+
+.search-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+    background: #0056b3;
+}
+
+/* Main Content */
+.main {
+    padding: 1.5rem 0;
+    min-height: calc(100vh - 120px);
+}
+
+/* Cards */
+.card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.card-subtitle {
+    color: #6c757d;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: #6c757d;
+    flex-wrap: wrap;
+}
+
+.card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Song List */
+.song-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.song-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+.song-item:hover {
+    border-color: #007bff;
+    box-shadow: 0 2px 6px rgba(0,123,255,0.1);
+}
+
+.song-info {
+    flex: 1;
+}
+
+.song-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.song-artist {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+.song-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: #6c757d;
+    flex-wrap: wrap;
+}
+
+/* Lyrics Display */
+.lyrics-container {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.lyrics-section {
+    color: #007bff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.lyrics-section:first-child {
+    margin-top: 0;
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+}
+
+.tag {
+    background: #e9ecef;
+    color: #495057;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.tag:hover {
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+}
+
+/* Pagination */
+.pagination {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.pagination-list {
+    display: inline-flex;
+    gap: 0.25rem;
+    list-style: none;
+    align-items: center;
+}
+
+.pagination-link {
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #dee2e6;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.pagination-link:hover {
+    background: #e9ecef;
+    text-decoration: none;
+}
+
+.pagination-link.current {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination-ellipsis {
+    padding: 0.4rem 0.7rem;
+    color: #6c757d;
+    font-size: 0.8rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    line-height: 1.2;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+    border-color: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+    border-color: #545b62;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-sm {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #495057;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background: #fff;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Footer */
+.footer {
+    background: #343a40;
+    color: #fff;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer a {
+    color: #adb5bd;
+}
+
+.footer a:hover {
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .search-container {
+        order: -1;
+        max-width: none;
+        width: 100%;
+    }
+    
+    .nav {
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .song-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .song-meta,
+    .card-meta {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .pagination-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    .main {
+        padding: 1rem 0;
+    }
+    
+    .card {
+        padding: 0.75rem;
+    }
+    
+    .lyrics-container {
+        padding: 1rem;
+    }
+}

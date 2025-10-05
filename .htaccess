@@ -1,0 +1,96 @@
+# Song Lyrics Platform - Apache Configuration
+# Enable URL rewriting and security settings
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Security Headers
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always append X-Frame-Options SAMEORIGIN
+    
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options nosniff
+    
+    # Enable XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "\.(sql|log|md|txt|json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to config and includes directories
+RedirectMatch 403 ^/config/.*$
+RedirectMatch 403 ^/includes/.*$
+RedirectMatch 403 ^/database/.*$
+
+# Custom error pages
+ErrorDocument 404 /404.php
+ErrorDocument 403 /403.php
+ErrorDocument 500 /500.php
+
+# URL Rewriting Rules
+# Homepage
+RewriteRule ^$ index.php [L]
+
+# Song details page: /song/123 or /song/123/song-title
+RewriteRule ^song/([0-9]+)/?(.*)$ song.php?id=$1 [L,QSA]
+
+# Artist page: /artist/123 or /artist/123/artist-name
+RewriteRule ^artist/([0-9]+)/?(.*)$ artist.php?id=$1 [L,QSA]
+
+# Album page: /album/123 or /album/123/album-title
+RewriteRule ^album/([0-9]+)/?(.*)$ album.php?id=$1 [L,QSA]
+
+# Genre page: /genre/123 or /genre/123/genre-name
+RewriteRule ^genre/([0-9]+)/?(.*)$ genre.php?id=$1 [L,QSA]
+
+# Search page: /search
+RewriteRule ^search/?$ search.php [L,QSA]
+
+# Browse pages
+RewriteRule ^browse/?$ browse.php [L,QSA]
+RewriteRule ^popular/?$ browse.php?type=popular [L,QSA]
+RewriteRule ^recent/?$ browse.php?type=recent [L,QSA]
+RewriteRule ^featured/?$ browse.php?type=featured [L,QSA]
+
+# Admin panel
+RewriteRule ^admin/?$ admin/index.php [L,QSA]
+RewriteRule ^admin/(.*)$ admin/$1 [L,QSA]
+
+# API endpoints (for future AJAX features)
+RewriteRule ^api/(.*)$ api/$1 [L,QSA]
+
+# Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Browser caching
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType font/woff "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 month"
+</IfModule>
